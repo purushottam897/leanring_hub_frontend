@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter , Routes , Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes , Route} from 'react-router-dom';
 import Login from './Components/login';
 import Register from './Components/register';
 import Course from './Components/course';
@@ -28,7 +28,7 @@ import Forum from './Components/forum';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/addquestions/:id" element={<AddQuestions/>}/>
           <Route path='/dashboard' element={<Dashboard />}></Route>
@@ -50,7 +50,7 @@ function App() {
           <Route path='/Performance' element={<Performance />} />
           <Route path='*' element={<ErrorPage />}></Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
       <ToastContainer/>
     </div>
   );
