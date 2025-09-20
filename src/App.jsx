@@ -1,4 +1,5 @@
 import './App.css';
+// The alias `BrowserRouter as Router` is kept as is.
 import {BrowserRouter as Router, Routes , Route} from 'react-router-dom';
 import Login from './Components/login';
 import Register from './Components/register';
@@ -28,7 +29,12 @@ import Forum from './Components/forum';
 function App() {
   return (
     <div className="App">
-      <Router>
+      {/* ✅ **THE FIX IS HERE** ✅
+        The `basename` prop is added to tell React Router that your application
+        lives inside the "/Learning_Hub" sub-directory.
+        Now, it will correctly match `path='/'` to the URL `/Learning_Hub`.
+      */}
+      <Router basename="/Learning_Hub">
         <Routes>
           <Route path="/addquestions/:id" element={<AddQuestions/>}/>
           <Route path='/dashboard' element={<Dashboard />}></Route>
